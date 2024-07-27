@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #282C34;
+            color: #ABB2BF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #61DAFB;
+            text-align: center;
+        }
+
+        .section {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section h2 {
+            color: #61DAFB;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .code-container,
+        .output {
+            display: none;
+        }
+
+        .code-container {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .output {
+            color: #98C379;
+            background-color: #2C2C2C;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .toggle-button {
+            background: #61DAFB;
+            color: #282C34;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .toggle-button:hover {
+            background: #4DA0C0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Java Programs on Array</h1>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Insert Elements in an Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class InstSingArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size");
+        int length = sc.nextInt();
+
+        int arr[] = new int[length];
+        System.out.println("enter the " + length + " elements");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("arr [" + i + "] ---->" + arr[i]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        enter the size<br>
+        5<br>
+        Enter the 5 elements<br>
+        2<br>
+        3<br>
+        5<br>
+        8<br>
+        64<br>
+        arr [0] ---->2<br>
+        arr [1] ---->3<br>
+        arr [2] ---->5<br>
+        arr [3] ---->8<br>
+        arr [4] ---->64
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Reverse the Elements of an Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class InstSingArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size");
+        int length = sc.nextInt();
+        int arr[] = new int[length];
+        System.out.println("enter the " + length + " elements");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Before Reverse of an Array");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("arr [" + i + "] ---->" + arr[i]);
+        }
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            int t = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = t;
+        }
+
+        System.out.println("After Reverse of an Array");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("arr [" + i + "] ---->" + arr[i]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        enter the size<br>
+        5<br>
+        enter the 5 elements<br>
+        1<br>
+        5<br>
+        6<br>
+        8<br>
+        9<br>
+        Before Reverse of an Array<br>
+        arr [0] ---->1<br>
+        arr [1] ---->5<br>
+        arr [2] ---->6<br>
+        arr [3] ---->8<br>
+        arr [4] ---->9<br>
+        After Reverse of an Array<br>
+        arr [0] ---->9<br>
+        arr [1] ---->8<br>
+        arr [2] ---->6<br>
+        arr [3] ---->5<br>
+        arr [4] ---->1
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Insert an Element into an Existing Array at a Specified Position</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Insertingelement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the length");
+        int length = sc.nextInt();
+
+        int arr[] = new int[length];
+        System.out.println("enter the " + length + " elements");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("length of array before inserting ---->" + arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(i + "-------->" + arr[i]);
+        }
+        System.out.println("enter the index of specified position or index");
+        int in = sc.nextInt();
+        System.out.println("enter the element to replace to specified index");
+        int ele = sc.nextInt();
+        arr = insert(arr, in, ele);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(i + "-------->" + arr[i]);
+        }
+    }
+
+    static int[] insert(int a[], int in, int ele) {
+        if (in > a.length || in < 0) {
+            System.out.println("invalid index");
+            return a;
+        } else {
+            int na[] = new int[a.length + 1];
+            for (int i = 0; i < in; i++) {
+                na[i] = a[i];
+            }
+            na[in] = ele;
+            for (int i = in; i < a.length; i++) {
+                na[i + 1] = a[i];
+            }
+            System.out.println("length of array after inserting ---->" + na.length);
+            return na;
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        enter the length<br>
+        5<br>
+        enter the 5 elements<br>
+        2<br>
+        8<br>
+        6<br>
+        7<br>
+        88<br>
+        length of array before inserting ---->5<br>
+        0-------->2<br>
+        1-------->8<br>
+        2-------->6<br>
+        3-------->7<br>
+        4-------->88<br>
+        enter the index of specified position or index<br>
+        3<br>
+        enter the element to replace to specified index<br>
+        62<br>
+        length of array after inserting ---->6<br>
+        0-------->2<br>
+        1-------->8<br>
+        2-------->6<br>
+        3-------->62<br>
+        4-------->7<br>
+        5-------->88
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Delete an Element from an Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class DeleteElement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the length of the array:");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        
+        System.out.println("Enter the " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        System.out.println("Length of array before deleting --> " + n);
+        for (int i = 0; i < n; i++) {
+            System.out.println(i + " --> " + arr[i]);
+        }
+        
+        System.out.println("Enter specified position for deleting that element:");
+        int pos = sc.nextInt();
+        
+        if (pos < n && pos >= 0) {
+            for (int i = pos; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            n--;
+        }
+        
+        System.out.println("Length of array after deleting --> " + n);
+        for (int i = 0; i < n; i++) {
+            System.out.println(i + " --> " + arr[i]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the length:<br>
+        6<br>
+        Enter the 6 elements:<br>
+        5<br>
+        5<br>
+        9<br>
+        8<br>
+        6<br>
+        2<br>
+        Length of array before deleting --> 6<br>
+        0 --> 5<br>
+        1 --> 5<br>
+        2 --> 9<br>
+        3 --> 8<br>
+        4 --> 6<br>
+        5 --> 2<br>
+        Enter specified position for deleting that element:<br>
+        5<br>
+        Length of array after deleting --> 5<br>
+        0 --> 5<br>
+        1 --> 5<br>
+        2 --> 9<br>
+        3 --> 8<br>
+        4 --> 2
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Search an Element in the Existing Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class SearchElement {
+    public static void main(String[] args) {
+        int ar[] = {22, 11, 23, 11, 15, 19};
+        int inx = search(ar, 15);
+        display(ar);
+        if (inx >= 0)
+            System.out.println("Your element found at index " + inx);
+        else
+            System.out.println("Not valid");
+    }
+
+    static void display(int a[]) {
+        for (int i = 0; i < a.length; i++)
+            System.out.println(i + " ------> " + a[i]);
+    }
+
+    static int search(int a[], int ele) {
+        for (int i = 0; i < a.length; i++) {
+            if (ele == a[i])
+                return i;
+        }
+        return -1;
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        0 ------> 22<br>
+        1 ------> 11<br>
+        2 ------> 23<br>
+        3 ------> 11<br>
+        4 ------> 15<br>
+        5 ------> 19<br>
+        Your element found at index 4
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Biggest and Smallest Element in the Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class BigElementArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the length");
+        int length = sc.nextInt();
+        int arr[] = new int[length];
+        int bigger = 0;
+        int smaller = 0;
+        System.out.println("Enter the " + length + " elements");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("arr[" + i + "] ----> " + arr[i]);
+        }
+        int big = arr[0];
+        int small = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (big < arr[i]) {
+                big = arr[i];
+            }
+            if (small > arr[i]) {
+                small = arr[i];
+            }
+        }
+        System.out.println("Biggest element is ----> " + big);
+        System.out.println("Smallest element is ----> " + small);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the length<br>
+        5<br>
+        Enter the 5 elements<br>
+        1<br>
+        8<br>
+        99<br>
+        66<br>
+        75<br>
+        arr[0] ----> 1<br>
+        arr[1] ----> 8<br>
+        arr[2] ----> 99<br>
+        arr[3] ----> 66<br>
+        arr[4] ----> 75<br>
+        Biggest element is ----> 99<br>
+        Smallest element is ----> 1
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the First Biggest and Second Biggest Element in the Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class FBiggest {
+    public static void main(String[] args) {
+        int ar[] = {23, 12, 14, 56, 22, 28, 13};
+        int fbig = ar[0];
+        int sbig = ar[1];
+        for (int i = 1; i < ar.length; i++) {
+            if (fbig < ar[i]) {
+                sbig = fbig;
+                fbig = ar[i];
+            } else if (sbig < ar[i]) {
+                sbig = ar[i];
+            }
+        }
+        System.out.println("First biggest element is " + fbig);
+        System.out.println("Second biggest element is " + sbig);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        First biggest element is 56<br>
+        Second biggest element is 28
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Second Occurrence of an Element in a Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class SecondOccurrenceElement {
+    public static void main(String[] args) {
+        int ar[] = {22, 11, 23, 11, 15, 19, 11};
+        int inx = secondOccurrence(ar, 11);
+        display(ar);
+        if (inx >= 0)
+            System.out.println("Second time occurred element found at index " + inx);
+        else
+            System.out.println("Not valid");
+    }
+
+    static void display(int a[]) {
+        for (int i = 0; i < a.length; i++)
+            System.out.println("arr[" + i + "] ------> " + a[i]);
+    }
+
+    static int secondOccurrence(int a[], int ele) {
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (ele == a[i])
+                count++;
+            if (count == 2)
+                return i;
+        }
+        return -1;
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        arr[0] ------> 22<br>
+        arr[1] ------> 11<br>
+        arr[2] ------> 23<br>
+        arr[3] ------> 11<br>
+        arr[4] ------> 15<br>
+        arr[5] ------> 19<br>
+        arr[6] ------> 11<br>
+        Second time occurred element found at index 3
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Occurrence of an Element in a Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class OccurrenceElement {
+    public static void main(String[] args) {
+        int ar[] = {22, 11, 23, 11, 15, 19, 11};
+        int inx = occurrence(ar, 11, 2);
+        display(ar);
+        if (inx >= 0)
+            System.out.println("Your element found at index " + inx);
+        else
+            System.out.println("Not valid");
+    }
+
+    static void display(int a[]) {
+        for (int i = 0; i < a.length; i++)
+            System.out.println(i + " ------> " + a[i]);
+    }
+
+    static int occurrence(int a[], int ele, int oc) {
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (ele == a[i])
+                count++;
+            if (count == oc)
+                return i;
+        }
+        return -1;
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        0 ------> 22<br>
+        1 ------> 11<br>
+        2 ------> 23<br>
+        3 ------> 11<br>
+        4 ------> 15<br>
+        5 ------> 19<br>
+        6 ------> 11<br>
+        Your element found at index 3
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find How Many Times an Element Occurs in a Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class ElementOccurred {
+    public static void main(String[] args) {
+        int ar[] = {22, 11, 23, 11, 15, 19, 11};
+        int in = occurred(ar, 11);
+        display(ar);
+        if (in >= 0)
+            System.out.println("Your element occurred " + in + " times");
+        else
+            System.out.println("Not valid");
+    }
+
+    static void display(int a[]) {
+        for (int i = 0; i < a.length; i++)
+            System.out.println(i + " ------> " + a[i]);
+    }
+
+    static int occurred(int a[], int ele) {
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (ele == a[i])
+                count++;
+        }
+        return count;
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        0 ------> 22<br>
+        1 ------> 11<br>
+        2 ------> 23<br>
+        3 ------> 11<br>
+        4 ------> 15<br>
+        5 ------> 19<br>
+        6 ------> 11<br>
+        Your element occurred 3 times
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Display Missing Elements in a Given Sorted Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class MissingElement {
+    public static void main(String[] args) {
+        int ar[] = {8, 15, 21, 24, 30, 37};
+        System.out.println("Missing elements in given array are:");
+        for (int i = 0; i < ar.length - 1; i++) {
+            for (int j = ar[i] + 1; j < ar[i + 1]; j++) {
+                System.out.println(j);
+            }
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Missing elements in given array are:<br>
+        9<br>
+        10<br>
+        11<br>
+        12<br>
+        13<br>
+        14<br>
+        16<br>
+        17<br>
+        18<br>
+        19<br>
+        20<br>
+        22<br>
+        23<br>
+        25<br>
+        26<br>
+        27<br>
+        28<br>
+        29<br>
+        31<br>
+        32<br>
+        33<br>
+        34<br>
+        35<br>
+        36
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Highest Contiguous Sum of Two Elements in a Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class SumOfTwoElements {
+    public static void main(String[] args) {
+        int ar[] = {21, 12, 15, 32, 16, 17, 22};
+        int inx = 0;
+        int big = ar[0] + ar[1];
+        for (int i = 1; i < ar.length - 1; i++) {
+            if (big < ar[i] + ar[i + 1]) {
+                big = ar[i] + ar[i + 1];
+                inx = i;
+            }
+        }
+        System.out.println("Sum of two elements ----> " + big);
+        System.out.println("The first element ----> " + ar[inx]);
+        System.out.println("The second element ----> " + ar[inx + 1]);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Sum of two elements ----> 48<br>
+        The first element ----> 32<br>
+        The second element ----> 16
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Display the Common Elements Between Two Arrays</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class CommonElement {
+    public static void main(String[] args) {
+        int ar1[] = {12, 13, 23, 15, 11, 16};
+        int ar2[] = {53, 26, 23, 15, 18, 13};
+        System.out.println("Common elements are:");
+        for (int i = 0; i < ar1.length; i++) {
+            for (int j = 0; j < ar2.length; j++) {
+                if (ar1[i] == ar2[j]) {
+                    System.out.println(ar1[i]);
+                    break;
+                }
+            }
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Common elements are:<br>
+        13<br>
+        23<br>
+        15
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Exchange the First Part Element with the Second Part Element Between Two Arrays</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class ExchangeOfElements {
+    public static void main(String[] args) {
+        int ar[] = {21, 12, 15, 32, 16, 17, 22};
+        System.out.println("BEFORE EXCHANGE OF ARRAY");
+        for (int i = 0; i < ar.length; i++) {
+            System.out.println(ar[i]);
+        }
+        int n;
+        if (ar.length % 2 == 0)
+            n = ar.length / 2;
+        else
+            n = (ar.length / 2) + 1;
+        for (int i = 0; i < ar.length / 2; i++) {
+            int t = ar[i];
+            ar[i] = ar[n + i];
+            ar[n + i] = t;
+        }
+        System.out.println("AFTER EXCHANGE OF ARRAY");
+        for (int i = 0; i < ar.length; i++) {
+            System.out.println(ar[i]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        BEFORE EXCHANGE OF ARRAY<br>
+        21<br>
+        12<br>
+        15<br>
+        32<br>
+        16<br>
+        17<br>
+        22<br>
+        AFTER EXCHANGE OF ARRAY<br>
+        16<br>
+        17<br>
+        22<br>
+        32<br>
+        21<br>
+        12<br>
+        15
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Display Distinct Elements from Given Two Arrays</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class DistinctElements {
+    public static void main(String[] args) {
+        int ar1[] = {12, 13, 23, 15, 11, 16};
+        int ar2[] = {53, 26, 23, 15, 18, 13};
+        System.out.println("Distinct elements from given two arrays:");
+        
+        for (int i = 0; i < ar1.length; i++) {
+            int find = 0;
+            for (int j = 0; j < ar2.length; j++) {
+                if (ar1[i] == ar2[j]) {
+                    find = 1;
+                    break;
+                }
+            }
+            if (find == 0)
+                System.out.println(ar1[i]);
+        }
+        
+        for (int i = 0; i < ar2.length; i++) {
+            int find = 0;
+            for (int j = 0; j < ar1.length; j++) {
+                if (ar2[i] == ar1[j]) {
+                    find = 1;
+                    break;
+                }
+            }
+            if (find == 0)
+                System.out.println(ar2[i]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Distinct elements from given two arrays:<br>
+        12<br>
+        11<br>
+        16<br>
+        53<br>
+        26<br>
+        18
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Merge Two Arrays</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class Merge {
+    public static void main(String[] args) {
+        int ar1[] = {12, 13, 23, 15, 11, 16};
+        int ar2[] = {53, 26, 23, 15, 18, 13};
+        int res[] = new int[ar1.length + ar2.length];
+        int j = 0;
+        for (int i = 0; i < ar1.length; i++, j++) {
+            res[j] = ar1[i];
+        }
+        for (int i = 0; i < ar2.length; i++, j++) {
+            res[j] = ar2[i];
+        }
+        System.out.println("MERGED ARRAY");
+        for (int i = 0; i < res.length; i++) {
+            System.out.println(res[i]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        MERGED ARRAY:<br>
+        12<br>
+        13<br>
+        23<br>
+        15<br>
+        11<br>
+        16<br>
+        53<br>
+        26<br>
+        23<br>
+        15<br>
+        18<br>
+        13
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Combine Two Arrays in Zigzag Manner</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class Zigzag {
+    public static void main(String[] args) {
+        int ar1[] = {12, 13, 23, 15, 11, 16};
+        int ar2[] = {53, 26, 23, 15, 18, 13, 23, 45};
+        int res[] = new int[ar1.length + ar2.length];
+        int i = 0, j = 0;
+        
+        for (int k = 0; k < res.length;) {
+            if (i < ar1.length) {
+                res[k] = ar1[i];
+                i++;
+                k++;
+            }
+            if (j < ar2.length) {
+                res[k] = ar2[j];
+                j++;
+                k++;
+            }
+        }
+        System.out.println("ZIGZAG ARRAY IS");
+        for (int l = 0; l < res.length; l++) {
+            System.out.println(res[l]);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        ZIGZAG ARRAY IS:<br>
+        12<br>
+        53<br>
+        13<br>
+        26<br>
+        23<br>
+        23<br>
+        15<br>
+        15<br>
+        11<br>
+        18<br>
+        16<br>
+        13<br>
+        23<br>
+        45
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find Palindrome Numbers in a Given Array</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class Main3 {
+    static void display(int a[]) {
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + ",");
+        }
+        System.out.println();
+    }
+
+    static int revdig(int n) {
+        int rev = 0;
+        while (n > 0) {
+            int r = n % 10;
+            rev = rev * 10 + r;
+            n = n / 10;
+        }
+        return rev;
+    }
+
+    public static void main(String[] args) {
+        int ar[] = {232, 12, 78, 898, 34543, 45};
+        
+        display(ar);
+        int count = 0;
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i] == revdig(ar[i])) count++;
+        }
+        System.out.println("——————");
+        System.out.println("Number of palindromes: " + count);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        232, 12, 78, 898, 34543, 45<br>
+        ——————<br>
+        Number of palindromes: 3
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Read Elements into the Matrix from Scanner</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.*;
+
+class Main2 {
+    static int[][] readMat() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the order:");
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int ar[][] = new int[m][n];
+        System.out.println("Enter " + m * n + " elements:");
+        for (int i = 0; i < ar.length; i++) {
+            for (int j = 0; j < ar[i].length; j++) {
+                ar[i][j] = sc.nextInt();
+            }
+        }
+        return ar;
+    }
+
+    static void display(int a[][]) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int ar[][] = readMat();
+        System.out.println("Entered Matrix:");
+        display(ar);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the order:<br>
+        2<br>
+        2<br>
+        Enter 4 elements:<br>
+        9<br>
+        6<br>
+        5<br>
+        1<br>
+        Entered Matrix:<br>
+        9 6<br>
+        5 1
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Biggest Element in Each Row and Each Column</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.*;
+
+class ReadMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the order:");
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int ar[][] = new int[m][n];
+        System.out.println("Enter " + m * n + " elements:");
+        for (int i = 0; i < ar.length; i++) {
+            for (int j = 0; j < ar[i].length; j++) {
+                ar[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("Entered matrix:");
+        for (int i = 0; i < ar.length; i++) {
+            for (int j = 0; j < ar[i].length; j++) {
+                System.out.print(ar[i][j] + "(" + i + "," + j + ") ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+        
+        for (int i = 0; i < ar.length; i++) {
+            int big = ar[i][0];
+            for (int j = 1; j < ar[i].length; j++) {
+                if (big < ar[i][j])
+                    big = ar[i][j];
+            }
+            System.out.println((i + 1) + " row biggest element: " + big);
+        }
+        
+        for (int i = 0; i < ar[0].length; i++) {
+            int big = ar[0][i];
+            for (int j = 0; j < ar.length; j++) {
+                if (big < ar[j][i])
+                    big = ar[j][i];
+            }
+            System.out.println((i + 1) + " column biggest element: " + big);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the order:<br>
+        2<br>
+        2<br>
+        Enter 4 elements:<br>
+        5<br>
+        6<br>
+        8<br>
+        9<br>
+        Entered matrix:<br>
+        5(0,0) 6(0,1)<br>
+        8(1,0) 9(1,1)<br>
+        1 row biggest element: 6<br>
+        2 row biggest element: 9<br>
+        1 column biggest element: 8<br>
+        2 column biggest element: 9
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Sum of Elements in Each Row and Each Column</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.*;
+
+class RowwiseAndColwiseSum {
+    static int[][] readMat() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the order:");
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int ar[][] = new int[m][n];
+        System.out.println("Enter " + m * n + " elements:");
+        for (int i = 0; i < ar.length; i++) {
+            for (int j = 0; j < ar[i].length; j++) {
+                ar[i][j] = sc.nextInt();
+            }
+        }
+        return ar;
+    }
+
+    static void display(int a[][]) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int ar[][] = readMat();
+        System.out.println("Entered matrix:");
+        display(ar);
+        for (int i = 0; i < ar.length; i++) {
+            int rsum = 0;
+            int csum = 0;
+            for (int j = 0; j < ar[i].length; j++) {
+                rsum = rsum + ar[i][j];
+                csum = csum + ar[j][i];
+            }
+            System.out.println((i + 1) + " row sum is: " + rsum);
+            System.out.println((i + 1) + " column sum is: " + csum);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the order:<br>
+        2<br>
+        2<br>
+        Enter 4 elements:<br>
+        6<br>
+        5<br>
+        7<br>
+        9<br>
+        Entered matrix:<br>
+        6 5<br>
+        7 9<br>
+        1 row sum is: 11<br>
+        1 column sum is: 13<br>
+        2 row sum is: 16<br>
+        2 column sum is: 14
+    </div>
+</div>
+
+
+
+    <!-- Include Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-java.min.js"></script>
+    <script>
+        function toggleSection(button) {
+            const codeContainer = button.nextElementSibling.nextElementSibling;
+            const output = button.nextElementSibling.nextElementSibling.nextElementSibling;
+
+            if (codeContainer.style.display === "none") {
+                codeContainer.style.display = "block";
+                output.style.display = "block";
+                button.textContent = "Hide Code & Output";
+            } else {
+                codeContainer.style.display = "none";
+                output.style.display = "none";
+                button.textContent = "Show Code & Output";
+            }
+        }
+    </script>
+</body>
+
+</html>

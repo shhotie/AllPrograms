@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #282C34;
+            color: #ABB2BF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #61DAFB;
+            text-align: center;
+        }
+
+        .section {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section h2 {
+            color: #61DAFB;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .code-container,
+        .output {
+            display: none;
+        }
+
+        .code-container {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .output {
+            color: #98C379;
+            background-color: #2C2C2C;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .toggle-button {
+            background: #61DAFB;
+            color: #282C34;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .toggle-button:hover {
+            background: #4DA0C0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Java Programs on Searching</h1>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program for Linear Search</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class SearchLinear {
+    public static int linearSearch(int[] arr, int x) {
+        for (int i = 0; i < arr.length; i++) {
+            if (x == arr[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] ar = {3, 46, 76, 4, 89, 7, 27};
+        System.out.println(linearSearch(ar, 4));
+        System.out.println(linearSearch(ar, 78));
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        3<br>
+        -1
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program for Binary Search</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+public class SearchBinary {
+    public static int binarySearch(int[] arr, int x) {
+        int first = 0;
+        int last = arr.length - 1;
+        while (first <= last) {
+            int middle = (first + last) / 2;
+            if (x == arr[middle]) {
+                return middle;
+            } else if (x > arr[middle]) {
+                first = middle + 1;
+            } else {
+                last = middle - 1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] i = {10, 49, 67, 90, 40, 86};
+        System.out.println(binarySearch(i, 49));
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        1
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program for Bubble Sort</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class Bubbledown {
+    public static void sortdown(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] a = {5, 8, 1, 6, 9, 2};
+        sortdown(a);
+        for (int x : a) {
+            System.out.println(x);
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        1<br>
+        2<br>
+        5<br>
+        6<br>
+        8<br>
+        9
+    </div>
+</div>
+
+
+
+    <!-- Include Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-java.min.js"></script>
+    <script>
+        function toggleSection(button) {
+            const codeContainer = button.nextElementSibling.nextElementSibling;
+            const output = button.nextElementSibling.nextElementSibling.nextElementSibling;
+
+            if (codeContainer.style.display === "none") {
+                codeContainer.style.display = "block";
+                output.style.display = "block";
+                button.textContent = "Hide Code & Output";
+            } else {
+                codeContainer.style.display = "none";
+                output.style.display = "none";
+                button.textContent = "Show Code & Output";
+            }
+        }
+    </script>
+</body>
+
+</html>

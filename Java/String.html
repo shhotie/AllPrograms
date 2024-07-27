@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #282C34;
+            color: #ABB2BF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #61DAFB;
+            text-align: center;
+        }
+
+        .section {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section h2 {
+            color: #61DAFB;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .code-container,
+        .output {
+            display: none;
+        }
+
+        .code-container {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .output {
+            color: #98C379;
+            background-color: #2C2C2C;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .toggle-button {
+            background: #61DAFB;
+            color: #282C34;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .toggle-button:hover {
+            background: #4DA0C0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Java Programs on String</h1>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Check if a String is an Anagram</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+class Anagram {
+    static String removeSpaces(String str) {
+        char[] ch = str.toCharArray();
+        String nstr = "";
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] != ' ') {
+                nstr = nstr + ch[i];
+            }
+        }
+        return nstr;
+    }
+
+    static String toLowerCase(String str) {
+        char[] ch = str.toCharArray();
+        String nstr = "";
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] >= 65 && ch[i] <= 90) {
+                nstr = nstr + ((char) (ch[i] + 32));
+            } else {
+                nstr = nstr + ch[i];
+            }
+        }
+        return nstr;
+    }
+
+    static String sort(String str) {
+        char[] ch = str.toCharArray();
+        for (int i = 0; i < ch.length - 1; i++) {
+            for (int j = i + 1; j < ch.length; j++) {
+                if (ch[i] > ch[j]) {
+                    char t = ch[i];
+                    ch[i] = ch[j];
+                    ch[j] = t;
+                }
+            }
+        }
+        return new String(ch);
+    }
+
+    static boolean compare(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        s1 = toLowerCase(s1);
+        s2 = toLowerCase(s2);
+        s1 = sort(s1);
+        s2 = sort(s2);
+        return s1.equals(s2);
+    }
+
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        System.out.println("Enter the first string");
+        String s1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String s2 = sc.nextLine();
+        s1 = removeSpaces(s1);
+        s2 = removeSpaces(s2);
+        boolean b = compare(s1, s2);
+
+        if (b)
+            System.out.println("String is an anagram");
+        else
+            System.out.println("Not an anagram");
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the first string<br>
+        Mother in law<br>
+        Enter the second string<br>
+        Hitler woman<br>
+        String is an anagram
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Check if a String is a Panagram</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class Panagram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string");
+        String s = sc.nextLine();
+        System.out.println("Given string is:\n" + s);
+        String st = removeSpace(s);
+
+        int d = check(st);
+        if (d == -1)
+            System.out.println(s + "\nIs not a pangram");
+        else
+            System.out.println(s + "\nIs a pangram");
+    }
+
+    public static String removeSpace(String s) {
+        char[] ch = s.toCharArray();
+        String nstr = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (ch[i] != ' ') {
+                nstr = nstr + ch[i];
+            }
+        }
+        return nstr;
+    }
+
+    public static int check(String st) {
+        int n = 26;
+        for (char i = 'A'; i <= 'Z'; i++) {
+            if (st.indexOf(i) < 0 && st.indexOf((char) (i + 32)) < 0) {
+                return -1;
+            }
+        }
+        return 1;
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        The quick brown fox jumps over a lazy dog<br>
+        Given string is:<br>
+        The quick brown fox jumps over a lazy dog<br>
+        The quick brown fox jumps over a lazy dog<br>
+        Is a pangram
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Check if a String is a Palindrome</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class PalindromeStr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string");
+        String st = sc.nextLine();
+        String nstr = "";
+        char[] ch = st.toCharArray();
+        for (int i = 0; i < ch.length / 2; i++) {
+            char t = ch[i];
+            ch[i] = ch[ch.length - 1 - i];
+            ch[ch.length - 1 - i] = t;
+        }
+        nstr = new String(ch);
+
+        if (nstr.equalsIgnoreCase(st))
+            System.out.println(st + " string is palindrome");
+        else
+            System.out.println(st + " string is not palindrome");
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        Malayalam<br>
+        Malayalam string is palindrome
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Reverse a String</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Revstring {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string");
+        String st = sc.nextLine();
+        char[] ch = st.toCharArray();
+        for (int i = 0; i < ch.length / 2; i++) {
+            char t = ch[i];
+            ch[i] = ch[ch.length - 1 - i];
+            ch[ch.length - 1 - i] = t;
+        }
+        st = new String(ch);
+
+        System.out.println("Reversed string is: " + st);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        Rama and Laxmana<br>
+        Reversed string is: anamxal dna amar
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Count Number of Characters in a String</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class NoOfCharactersInaString {
+    public static void main(String[] args) {
+        int count = 0;
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String st = scn.nextLine();
+        char[] ch = st.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            if ((ch[i] >= 65 && ch[i] <= 90) || (ch[i] >= 97 && ch[i] <= 122) || (ch[i] >= 48 && ch[i] <= 57)
+                    && ch[i] != ' ' && ch[i] != ',' && ch[i] != '.') {
+                count++;
+            }
+        }
+        System.out.println("Number of Characters = " + count);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter a string:<br>
+        adkvdh dodksk<br>
+        Number of Characters = 12
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find the Sum of Numbers in an Alphanumeric String</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class SumOfNumbersInAlphanumericString {
+    public static void main(String[] args) {
+        int sum = 0;
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter an alphanumeric string:");
+        String st = scn.nextLine();
+        String num = "";
+        for (int i = 0; i < st.length(); i++) {
+            if (st.charAt(i) >= 48 && st.charAt(i) <= 57) {
+                num += st.charAt(i);
+            } else {
+                if (!num.equals("")) {
+                    sum += Integer.parseInt(num);
+                    num = "";
+                }
+            }
+        }
+        if (!num.equals("")) {
+            sum += Integer.parseInt(num);
+        }
+        System.out.println("Sum of all numbers in the given string = " + sum);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter an alphanumeric string:<br>
+        123abc34efg5hij<br>
+        Sum of all numbers in the given string = 162
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Count Number of Characters in Each Word</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Countword {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String s = sc.nextLine();
+        String nst = " ";
+        int nc = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                nst = nst + nc + " ";
+                nc = 0;
+            } else {
+                nc++;
+                nst = nst + s.charAt(i);
+            }
+        }
+        nst = nst + nc;
+        System.out.println("Number of characters in each word in a string is: " + nst);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        rama and laxmana<br>
+        Number of characters in each word in a string is: rama 4 and 3 laxmana 7
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Display Occurrences of Each Character in a String</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class NumOfOcc {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String:");
+        String st = sc.nextLine();
+        int n = st.length();
+        char[] ch = st.toCharArray();
+
+        for (int i = 0; i < n; i++) {
+            int count = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (ch[i] == ch[j]) {
+                    count++;
+                    int k = j;
+                    while (k < n - 1) {
+                        ch[k] = ch[k + 1];
+                        k++;
+                    }
+                    n--;
+                    j--;
+                }
+            }
+            System.out.println(ch[i] + " occurred " + count + " times");
+        }
+        String nst = "";
+        for (int i = 0; i < n; i++) {
+            nst = nst + ch[i];
+        }
+        System.out.println(nst);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the String:<br>
+        Malayalam<br>
+        m occurred 2 times<br>
+        a occurred 4 times<br>
+        l occurred 2 times<br>
+        y occurred 1 times<br>
+        maly
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Display Number of Lowercase, Uppercase, Special Symbols, Spaces, and Digits in a String</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class DiffTypeCharsSymbols {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String st = sc.nextLine();
+        char[] ch = st.toCharArray();
+        int uc = 0, lc = 0, spc = 0, dc = 0, sp = 0;
+
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] >= 65 && ch[i] <= 90) {
+                uc++;
+            } else if (ch[i] >= 97 && ch[i] <= 122) {
+                lc++;
+            } else if (ch[i] >= 48 && ch[i] <= 57) {
+                dc++;
+            } else if (ch[i] == ' ') {
+                sp++;
+            } else {
+                spc++;
+            }
+        }
+
+        System.out.println("No of upper case letters: " + uc);
+        System.out.println("No of lower case letters: " + lc);
+        System.out.println("No of decimal numbers: " + dc);
+        System.out.println("No of spaces: " + sp);
+        System.out.println("No of special characters: " + spc);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        PramoD123$@gmail.com<br>
+        No of upper case letters: 2<br>
+        No of lower case letters: 12<br>
+        No of decimal numbers: 3<br>
+        No of spaces: 0<br>
+        No of special characters: 3
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Convert Number into Words</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class Numtoword {
+    static String one[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+    static String two[] = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+
+    static void pw(int n, String st) {
+        if (n <= 19) {
+            System.out.print(one[n] + " ");
+        } else {
+            System.out.print(two[n / 10] + one[n % 10] + " ");
+        }
+        if (n != 0) {
+            System.out.print(st + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Enter the number:");
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        pw(num / 10000000, "crores");
+        pw((num / 100000) % 100, "lakhs");
+        pw((num / 1000) % 100, "thousand");
+        pw((num / 100) % 10, "hundred");
+        pw(num % 100, "");
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the number:<br>
+        999999<br>
+        nine lakhs ninety nine thousand nine hundred and ninety nine
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Reverse the Sentence</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Revsentence {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the sentence:");
+        String st = sc.nextLine();
+        char[] ch = st.toCharArray();
+        String rst = "";
+
+        for (int i = ch.length - 1; i >= 0; i--) {
+            int k = i;
+            while (i >= 0 && ch[i] != ' ') {
+                i--;
+            }
+            int j = i + 1;
+            while (j <= k) {
+                rst = rst + ch[j];
+                j++;
+            }
+            rst = rst + ' ';
+        }
+        System.out.println("The reversed sentence is: " + rst.trim());
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the sentence:<br>
+        rama and laxmana<br>
+        The reversed sentence is: laxmana and rama
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Reverse the Words in a Sentence</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Revwords {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the sentence:");
+        String st = sc.nextLine();
+        char[] ch = st.toCharArray();
+        String rst = "";
+
+        for (int i = 0; i < ch.length; i++) {
+            int k = i;
+            while (i < ch.length && ch[i] != ' ') {
+                i++;
+            }
+            int j = i - 1;
+            while (k <= j) {
+                rst = rst + ch[j];
+                j--;
+            }
+            rst = rst + ' ';
+        }
+        System.out.println("The reversed words of the sentence is: " + rst.trim());
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the sentence:<br>
+        rama and laxmana<br>
+        The reversed words of the sentence is: amar dna anamxal
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Display String in Init Cap (First Letter Capitalized)</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Stringinitcap {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String st = sc.nextLine();
+        char[] ch = st.toCharArray();
+
+        for (int i = 0; i < ch.length; i++) {
+            if (i == 0 || (ch[i] != ' ' && ch[i - 1] == ' ')) {
+                if (ch[i] >= 97 && ch[i] <= 122) {
+                    ch[i] = (char) (ch[i] - 32);
+                }
+            }
+        }
+        st = new String(ch);
+        System.out.println("String in init cap: " + st);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        pramod reddy pavan chandu<br>
+        String in init cap: Pramod Reddy Pavan Chandu
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Convert Upper Case to Lower Case and Vice Versa</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Stringuptolow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String st = sc.nextLine();
+        char[] ch = st.toCharArray();
+
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] >= 65 && ch[i] <= 90) {
+                ch[i] = (char) (ch[i] + 32);
+            } else if (ch[i] >= 97 && ch[i] <= 122) {
+                ch[i] = (char) (ch[i] - 32);
+            }
+        }
+        st = new String(ch);
+        System.out.println("Converted string in case: " + st);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        PraMoD ReddY GoPi RedDY<br>
+        Converted string in case: pRAmOd rEDDy gOpI rEDdy
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Find a Sub-string Without Using Inbuilt Functions</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+class Substring {
+    public static void main(String[] args) {
+        System.out.println("Enter the main string:");
+        Scanner sc = new Scanner(System.in);
+        String st1 = sc.next();
+        char[] ch1 = st1.toCharArray();
+        System.out.println("Enter the sub string:");
+        String st2 = sc.next();
+        char[] ch2 = st2.toCharArray();
+        int find = 0;
+
+        for (int i = 0; i < ch1.length; i++) {
+            int k = i, j = 0;
+            while (k < ch1.length && j < ch2.length && ch1[k] == ch2[j]) {
+                j++;
+                k++;
+            }
+            if (j == ch2.length) {
+                find++;
+                System.out.println(find + " times " + st2 + " present between " + i + " to " + (k - 1) + " indexes");
+            }
+        }
+        if (find == 0) {
+            System.out.println("Not found");
+        }
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the main string:<br>
+        PramodReddy<br>
+        Enter the sub string:<br>
+        Reddy<br>
+        1 times Reddy present between 6 to 11 indexes
+    </div>
+</div>
+<div class="section">
+    <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+    <h2>Program to Convert Integer of String Type to Integer Type Without Using `parseInt`</h2>
+    <div class="code-container">
+        <pre class="code"><code class="language-java">
+import java.util.Scanner;
+
+public class StringToInt {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String s = sc.next();
+        System.out.println("After converting string to integer:");
+        int d = check(s);
+        if (d == 0) {
+            System.out.println("Not a valid string");
+        } else {
+            System.out.println(d + " is in integer type");
+        }
+    }
+
+    public static int check(String s) {
+        int i = 0, number = 0;
+
+        for (int j = 0; j < s.length(); j++) {
+            char[] ch = s.toCharArray();
+            if (ch[j] >= 'a' && ch[j] <= 'z' || ch[j] >= 'A' && ch[j] <= 'Z') {
+                return 0;
+            }
+        }
+
+        while (i < s.length()) {
+            number = number * 10;
+            number = number + (s.charAt(i++) - '0');
+        }
+        return number;
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong><br>
+        Enter the string:<br>
+        3306<br>
+        After converting string to integer:<br>
+        3306 is in integer type
+    </div>
+</div>
+
+
+
+    <!-- Include Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-java.min.js"></script>
+    <script>
+        function toggleSection(button) {
+            const codeContainer = button.nextElementSibling.nextElementSibling;
+            const output = button.nextElementSibling.nextElementSibling.nextElementSibling;
+
+            if (codeContainer.style.display === "none") {
+                codeContainer.style.display = "block";
+                output.style.display = "block";
+                button.textContent = "Hide Code & Output";
+            } else {
+                codeContainer.style.display = "none";
+                output.style.display = "none";
+                button.textContent = "Show Code & Output";
+            }
+        }
+    </script>
+</body>
+
+</html>

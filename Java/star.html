@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #282C34;
+            color: #ABB2BF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #61DAFB;
+            text-align: center;
+        }
+
+        .section {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section h2 {
+            color: #61DAFB;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .code-container,
+        .output {
+            display: none;
+        }
+
+        .code-container {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .output {
+            color: #98C379;
+            background-color: #2C2C2C;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .toggle-button {
+            background: #61DAFB;
+            color: #282C34;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .toggle-button:hover {
+            background: #4DA0C0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Java Programs On Star Pattern</h1>
+
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Equilateral Triangle with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class EquiTri {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the number:");
+            int n = sc.nextInt();
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n - i - 1; j++) {
+                    System.out.print(" ");
+                }
+                for (int k = 0; k <= i; k++) {
+                    System.out.print("* ");
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the number: 7<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* *<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* * *<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;* * * *<br>
+            &nbsp;&nbsp;&nbsp;* * * * *<br>
+            &nbsp;&nbsp;* * * * * *<br>
+            * * * * * * *
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Inverted Triangle with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class InverTri {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the number:");
+            int n = sc.nextInt();
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print(" ");
+                }
+                for (int k = 0; k < 2 * (n - i) - 1; k++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the number: 4<br>
+            *******<br>
+            *****<br>
+            ***<br>
+            *
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Filled Box with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class FilledBox {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 7<br>
+            *******<br>
+            *******<br>
+            *******<br>
+            *******<br>
+            *******<br>
+            *******<br>
+            *******
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Hollow Box with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class Box1 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i == 0 || j == 0 || i == n - 1 || j == n - 1) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 7<br>
+            *******<br>
+            * *<br>
+            * *<br>
+            * *<br>
+            * *<br>
+            * *<br>
+            *******
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Box and Cross Inside it with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class Box1 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i == 0 || j == 0 || i == n - 1 || j == n - 1 || i == j || i + j == n - 1) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 7<br>
+            *******<br>
+            ** **<br>
+            * * * *<br>
+            * * *<br>
+            * **<br>
+            ** **<br>
+            *******
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Cross Mark with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class Cross {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = 1; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i == j || i + j == n - 1) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 7<br>
+            * *<br>
+            * *<br>
+            * *<br>
+            *<br>
+            * *<br>
+            * *<br>
+            * *
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Right Angle Triangle with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class Triangle {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = 1; i <= n; i++) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 7<br>
+            *<br>
+            **<br>
+            ***<br>
+            ****<br>
+            *****<br>
+            ******<br>
+            *******
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Reverse Triangle with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class ReverseTriangle {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = n; i >= 1; i--) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 7<br>
+            *******<br>
+            ******<br>
+            *****<br>
+            ****<br>
+            ***<br>
+            **<br>
+            *
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="toggle-button" onclick="toggleSection(this)">Show Code & Output</button>
+        <h2>Program to Display Pyramid with Stars</h2>
+        <div class="code-container">
+            <pre class="code"><code class="language-java">
+    import java.util.Scanner;
+    
+    public class Pyramid {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the value of n:");
+            int n = sc.nextInt();
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = n - i - 1; j > 0; j--) {
+                    System.out.print(" ");
+                }
+                for (int k = 0; k <= i; k++) {
+                    System.out.print("* ");
+                }
+                System.out.println();
+            }
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Enter the value of n: 5<br>
+            *<br>
+            * *<br>
+            * * *<br>
+            * * * *<br>
+            * * * * *
+        </div>
+    </div>
+
+
+    <!-- Include Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-java.min.js"></script>
+    <script>
+        function toggleSection(button) {
+            const codeContainer = button.nextElementSibling.nextElementSibling;
+            const output = button.nextElementSibling.nextElementSibling.nextElementSibling;
+
+            if (codeContainer.style.display === "none") {
+                codeContainer.style.display = "block";
+                output.style.display = "block";
+                button.textContent = "Hide Code & Output";
+            } else {
+                codeContainer.style.display = "none";
+                output.style.display = "none";
+                button.textContent = "Show Code & Output";
+            }
+        }
+    </script>
+</body>
+
+</html>

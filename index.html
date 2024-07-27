@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            /* Light cyan background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            /* White background for the container */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #00796b;
+            /* Teal color for heading */
+            margin-bottom: 30px;
+        }
+
+        select {
+            font-size: 18px;
+            padding: 10px;
+            margin: 20px 0;
+            border: 2px solid #004d40;
+            /* Border color */
+            border-radius: 5px;
+            background-color: #ffffff;
+            /* White background */
+            color: #004d40;
+            /* Text color */
+        }
+
+        option {
+            color: #004d40;
+            /* Text color for options */
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #00796b;
+            /* Teal color for button */
+            color: #ffffff;
+            /* White text */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004d40;
+            /* Darker teal color on hover */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 15px 0;
+            text-align: left;
+            /* Align text to the left */
+        }
+
+        a {
+            text-decoration: none;
+            color: #004d40;
+            /* Darker teal color for links */
+            font-weight: bold;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        a:hover {
+            color: #ffffff;
+            /* White text color on hover */
+            background-color: #004d40;
+            /* Darker background on hover */
+            padding: 2px 5px;
+            /* Small padding for highlighting effect */
+            border-radius: 3px;
+            /* Slightly rounded corners for the highlight */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the World of Programs</h1>
+        <form id="languageForm">
+            <select id="languageSelect" name="language">
+                <option value="" disabled selected>Select a programming language</option>
+                <option value="java">Java</option>
+                <!-- Add more languages here if needed -->
+            </select>
+            <br>
+            <button type="button" onclick="showLinks()">Go</button>
+        </form>
+        <div id="linksContainer" style="display:none;">
+            <p><a id="link1" href="" target="_blank">Go to Java Programs on Numbers</a></p>
+            <p><a id="link2" href="" target="_blank">Go to Java Programs on Number Conversion</a></p>
+            <p><a id="link3" href="" target="_blank">Go to Java Programs on Star Pattern</a></p>
+            <p><a id="link4" href="" target="_blank">Go to Java Programs on String </a></p>
+            <p><a id="link5" href="" target="_blank">Go to Java Programs on Search sort </a></p>
+            <p><a id="link6" href="" target="_blank">Go to Java Programs on Array </a></p>
+            <p><a id="link7" href="" target="_blank">Go to Java Programs on Special Program </a></p>
+
+        </div>
+    </div>
+
+    <script>
+        function showLinks() {
+            const language = document.getElementById('languageSelect').value;
+            const linksContainer = document.getElementById('linksContainer');
+            const link1 = document.getElementById('link1');
+            const link2 = document.getElementById('link2');
+            const link3 = document.getElementById('link3');
+            const link4 = document.getElementById('link4');
+            const link5 = document.getElementById('link5');
+            const link6 = document.getElementById('link6');
+            const link7 = document.getElementById('link7');
+            
+
+
+            if (language === 'java') {
+                link1.href = 'Java/Number.html';
+                link1.textContent = 'Go to Java Programs on Numbers';
+                link2.href = 'Java/NumConversion.html';
+                link2.textContent = 'Go to Java Programs on Number Conversion';
+                link3.href = 'Java/star.html';
+                link3.textContent = 'Go to Java Programs on Star Pattern';
+                link4.href = 'Java/String.html';
+                link4.textContent = 'Go to Java Programs on String';
+                link5.href = 'Java/SearchSort.html';
+                link5.textContent = 'Go to Java Programs on Search sort';
+                link6.href = 'Java/Array.html';
+                link6.textContent = 'Go to Java Programs on Array';
+                link7.href = 'Java/Special.html';
+                link7.textContent = 'Go to Java Programs on Special Program';
+            }
+            // Add more languages and links here if needed
+
+            linksContainer.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
