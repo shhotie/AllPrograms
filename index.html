@@ -103,6 +103,7 @@
             <select id="languageSelect" name="language">
                 <option value="" disabled selected>Select a programming language</option>
                 <option value="java">Java</option>
+                <option value="corejavatheory">Java Theory</option>
                 <!-- Add more languages here if needed -->
             </select>
             <br>
@@ -112,11 +113,11 @@
             <p><a id="link1" href="" target="_blank">Go to Java Programs on Numbers</a></p>
             <p><a id="link2" href="" target="_blank">Go to Java Programs on Number Conversion</a></p>
             <p><a id="link3" href="" target="_blank">Go to Java Programs on Star Pattern</a></p>
-            <p><a id="link4" href="" target="_blank">Go to Java Programs on String </a></p>
-            <p><a id="link5" href="" target="_blank">Go to Java Programs on Search sort </a></p>
-            <p><a id="link6" href="" target="_blank">Go to Java Programs on Array </a></p>
-            <p><a id="link7" href="" target="_blank">Go to Java Programs on Special Program </a></p>
-
+            <p><a id="link4" href="" target="_blank">Go to Java Programs on String</a></p>
+            <p><a id="link5" href="" target="_blank">Go to Java Programs on Search sort</a></p>
+            <p><a id="link6" href="" target="_blank">Go to Java Programs on Array</a></p>
+            <p><a id="link7" href="" target="_blank">Go to Java Programs on Special Program</a></p>
+            <p><a id="link8" href="" target="_blank">Go to Core Java Theory</a></p>
         </div>
     </div>
 
@@ -131,8 +132,7 @@
             const link5 = document.getElementById('link5');
             const link6 = document.getElementById('link6');
             const link7 = document.getElementById('link7');
-            
-
+            const link8 = document.getElementById('link8');
 
             if (language === 'java') {
                 link1.href = 'Java/Number.html';
@@ -149,12 +149,32 @@
                 link6.textContent = 'Go to Java Programs on Array';
                 link7.href = 'Java/Special.html';
                 link7.textContent = 'Go to Java Programs on Special Program';
+                link8.style.display = 'none';
+            } else if (language === 'corejavatheory') {
+                link8.href = 'https://shhotie.github.io/Java_PDF/';
+                link8.textContent = 'Go to Core Java Theory';
+                link1.style.display = 'none';
+                link2.style.display = 'none';
+                link3.style.display = 'none';
+                link4.style.display = 'none';
+                link5.style.display = 'none';
+                link6.style.display = 'none';
+                link7.style.display = 'none';
+            } else {
+                link1.style.display = 'none';
+                link2.style.display = 'none';
+                link3.style.display = 'none';
+                link4.style.display = 'none';
+                link5.style.display = 'none';
+                link6.style.display = 'none';
+                link7.style.display = 'none';
+                link8.style.display = 'none';
             }
-            // Add more languages and links here if needed
 
             linksContainer.style.display = 'block';
         }
     </script>
 </body>
+
 
 </html>
